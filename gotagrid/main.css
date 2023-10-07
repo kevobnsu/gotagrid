@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&amp;display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: border-box;
+	font-family: 'Anton', sans-serif;
+}
+
+body {
+	background: radial-gradient(#fff, #aaa);
+}
+
+.button-container {
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: 0.3s ease;
+	pointer-events: auto;
+}
+
+.high-score-container {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: #fff;
+	border-radius: 0.125rem;
+	padding: 0.35rem 0.5rem;
+	transition: 0.3s ease;
+	pointer-events: auto;
+	z-index: 10000;
+}
+
+.high-score-container.hide {
+	opacity: 0.33;
+	pointer-events: none;
+	background-color: transparent;
+}
+.button-container.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#start-btn {
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	padding: 1rem 4rem;
+	color: #fff;
+	background-color: #1b1b1b;
+	border: none;
+	transition: 0.3s ease;
+	border-radius: 0.35rem;
+	position: relative;
+	cursor: pointer;
+}
+
+#start-btn .right-icon {
+	position: absolute;
+	top: 26%;
+	right: 10%;
+	height: 36px;
+	width: 36px;
+	transition: 0.3s ease;
+}
+
+#start-btn .left-icon {
+	position: absolute;
+	top: 26%;
+	left: 8%;
+	height: 36px;
+	width: 36px;
+	transition: 0.3s ease;
+}
+
+#start-btn .right-icon img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#start-btn .left-icon img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#start-btn:hover {
+	transform: scale(1.05);
+	filter: opacity(0.95);
+	letter-spacing: 0.2rem;
+}
+
+#gota-grid {
+	height: 100vh;
+	width: 95vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	user-select: none;
+	animation: openUI 1s ease-in-out;
+}
+
+.box {
+	min-height: 100%;
+	background-color: #fcfcfc;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.box:nth-child(even) {
+	transform: scaleX(-1);
+}
+
+.box img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 1.5rem;
+	color: #1b1b1b;
+	position: absolute;
+	top: 100vh;
+	left: 50vw;
+	width: 100%;
+	transform: translate(-50%, -3rem);
+	transition: 0.3s ease;
+	opacity: 0;
+	pointer-events: none;
+	margin-bottom: 1rem;
+}
+
+.timer.show {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.timer > button {
+	cursor: pointer;
+	padding: 0.25rem 0.5rem;
+	transition: 0.15s ease;
+	color: #fff;
+	background-color: #1b1b1b;
+	border-radius: 0.35rem;
+	opacity: 0.75;
+	border: none;
+}
+
+.timer > button:hover {
+	color: #fff;
+	background: #f20f38;
+	opacity: 1;
+}
+
+.timer-output {
+	width: 110px;
+}
+
+@keyframes openUI {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes closeUI {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
